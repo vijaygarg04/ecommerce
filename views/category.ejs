@@ -1,0 +1,61 @@
+<% include partials/header %>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #2c3e50">
+        <a class="navbar-brand" href="#">MAGIC SHOP</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                <a class="nav-link" href="#">ABOUT <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="#">CUSTOMER CARE</a>
+                </li>
+            </ul>
+          <div style="width: 35%;padding: 5px;">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link"><i class="fas fa-plus"></i> ADD PRODUCTS</a></li>
+                <li class="nav-item"><a class="nav-link"><i class="fas fa-user"></i> SIGN IN</a></li>
+                <li class="nav-item"><a class="nav-link"><i class="fas fa-user-plus"></i> SIGN UP</a></li>
+                <li class="nav-item"><a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i>   CART</a></li>
+              </ul>
+         </div>
+          
+        </div>
+      </nav> 
+      <div style="margin-top:20px; width: 100%; margin: 5px auto ">
+          <div style="background: #2c3e50; border: 2px solid #2c0e50; border-radius: 5px;margin: 0px auto">
+              <h1 style="width: 50%;"><i class="fas fa-shopping-basket"></i> FLOPKART</h1>
+              <h4  style="width: 30%; margin-left: auto">SEARCH ANYTHING FROM ANYWHERE. </h4>
+            </div>
+      </div>
+      <div class="input-group mb-3 container" style="margin: 100px auto; " >
+            <input id="search" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" style="border:2px solid grey; border-radius: 10px">
+            <div class="input-group-append">
+              <button class="btn btn-round btn-primary btn-lg" id="basic-addon2" style="margin-left: 3px; border-radius: 10px ">SEARCH</button>
+            </div>
+      </div>
+      <div class="row" style="margin-top: 100px" id="pro">
+          <% for(var i=0;i<data.length;i++){ %>
+            <div class="col-lg-4 col-sm-6">
+                <div class="card" style="width: 25rem;">
+                      <img class="card-img-top" src='<%= data[i].img %>' alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= data[i].title %></h5>
+                        <p class="card-text"><%= data[i].description %></p>
+                        <p class="card-text"> ₹  <%= data[i].price %></p>
+                        <div class="card-footer" style="text-align: center">
+                          <button class="btn btn-primary btn-md addtocart" >ADD TO CART</button>
+                          </div>
+                      </div>
+                    </div>
+            </div>
+        <%  } %> 
+      </div>
+
+<% include partials/footer %>
+          
+     
