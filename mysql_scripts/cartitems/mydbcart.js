@@ -73,11 +73,25 @@ function updatequantity(title,quantity){
     })
     
 }
+function deleteallitemsincart(){
+    return new Promise(function(resolve,reject){
+        connection.query(`DELETE FROM cart`,
+    function(err,rows){
+        if(err){
+            reject(err);
+        }else{
+            resolve(rows); 
+        }
+       
+        })
+    })
+}
 exports=module.exports={
     getallitemsfromcart,
     insertincart,
     getitemswithtitlefromcart,
-    updatequantity
+    updatequantity,
+    deleteallitemsincart
 }
 
 

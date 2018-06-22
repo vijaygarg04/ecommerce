@@ -94,5 +94,16 @@ $(function(){
         $(".tbody tr")[idx].children[1].innerText=pasttotal-price;
         
     });
-    
+    $("#confirm").click(function(){
+        console.log("hi");
+        
+        $.post(
+            '/thankyou',
+            {
+            },
+            function(){
+        
+            }
+        );
+    });
 })

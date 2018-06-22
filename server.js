@@ -130,6 +130,16 @@ app.get('/json',function(req,res){
     });
 
 
+});
+app.get('/thankyou',function(req,res){
+    console.log('hi');
+    
+    dbcart.deleteallitemsincart().then(function(rows){
+        res.render('thankyou.ejs');
+    }).catch(function(err){
+        res.send(err)
+    })
+    
 })
 app.listen(4444,function(){
 console.log("SERVER STARTED AT 4444");

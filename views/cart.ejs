@@ -5,31 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="/scripts/cart.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="crossorigin="anonymous"></script>
+
 </head>
 <body style="background: url(https://images.designtrends.com/wp-content/uploads/2015/11/30143120/Ash-Color-Plain-Wallpaper-Download1.jpg)">
-    <div class="container" style="margin: 0px auto; width: 50%; border:1px solid gray; border-radius: 3px">
+   <div style="width: 100px; height: 100px; margin: 2% auto"><button class="btn btn-primary" style="border-radius: 10px;"><i class="fas fa-cart-arrow-down fa-7x"></i><span style="font-size: 40px"> CART </span></button></div>
+    <div class="container" style="margin: 8% auto; width: 70%; padding: 20px">
         
-            <table style="width: 50%; margin: 0px auto">
+            <table style="width: 100%; margin: 0px auto;border: 3px solid grey; border-radius: 10px; padding: 10px">
                 <thead>
                         <tr>
-                                <th>ITEM</th>
-                                <th>PRICE</th> 
-                                <th>Quantity</th>
-                                <th>AMOUNT</th>
+                                <th style="text-align: center; padding-top: 10px">ITEM</th>
+                                <th style="text-align: center; padding-top: 10px">PRICE</th> 
+                                <th style="text-align: center; padding-top: 10px">Quantity</th>
+                                <th style="text-align: center; padding-top: 10px">AMOUNT</th>
 
                         </tr>
                 </thead>
                 <tbody class="tbody">
                         <%  for(var i=0;i<cart.length;i++){ %>
                             <tr>
-                                <td><%= cart[i].title %></td>
-                                <td><%= cart[i].price %></td>
-                                <td><%= cart[i].quantity %></td>
-                                <td><%= cart[i].price*cart[i].quantity %></td>
-                                <td><button class="plus">+</button></td>
-                                <td><button class="minus">-</button></td>
+                                <td style="text-align: center; padding-top: 10px"><%= cart[i].title %></td>
+                                <td style="text-align: center; padding-top: 10px"><%= cart[i].price %></td>
+                                <td style="text-align: center; padding-top: 10px"><%= cart[i].quantity %></td>
+                                <td style="text-align: center; padding-top: 10px"><%= cart[i].price*cart[i].quantity %></td>
+                                <td style="text-align: center; padding-top: 10px"><button class="btn btn-primary plus"><i class=" fas fa-plus"></i> </button></td>
+                                <td style="text-align: center; padding-top: 10px"><button class="btn btn-primary minus"><i class=" fas fa-minus"></i></button></td>
                             </tr> 
                              <% } %>
                             <tr>
@@ -43,8 +49,10 @@
                             </tr>
                 </tbody>
             </table>
+            <!-- <p >TOTAL CART VALUE <span id="totalvalue"></span> </p> -->
+            <button class="btn btn-success" style="margin: 1% 40%; width: 20%;" id="confirm"> <a href="/thankyou">PLACE ORDER</a> </button>
     </div>
 
-   <button> <a  id="place" href="/thanx.html"> PLACE ORDER </button></a>
+   
 </body>
 </html>
