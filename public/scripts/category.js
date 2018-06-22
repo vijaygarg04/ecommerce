@@ -1,6 +1,12 @@
 $(function(){
 console.log("hi");
-$('.addtocart').click(function(){
+
+$("#basic-addon2").click(function(){
+  
+console.log($("#search")[0].value);
+
+});
+$('.addtocart').click(function(){ 
   var image=$(this)[0].parentElement.parentElement.parentElement.children[0].src;
   console.log(image);
   

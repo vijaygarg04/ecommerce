@@ -44,6 +44,10 @@ $(function(){
         );
         $(this)[0].parentElement.parentElement.children[2].innerText=newquantity;
         $(this)[0].parentElement.parentElement.children[3].innerText=newquantity*price;
+        var pasttotal=$(".tbody tr")[idx].children[1].innerText;
+        
+        
+        $(".tbody tr")[idx].children[1].innerText=parseInt(pasttotal)+parseInt(price);
     }else{
         alert("ITEM cannot be less than 0 and greater than 10")
     }
@@ -82,7 +86,13 @@ $(function(){
     }
 
         // console.log(item);
-
+        var pasttotal=$(".tbody tr")[idx].children[1].innerText;
+        console.log(pasttotal);
+        console.log(price);
+        
+        
+        $(".tbody tr")[idx].children[1].innerText=pasttotal-price;
         
     });
+    
 })
