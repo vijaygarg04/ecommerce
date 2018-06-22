@@ -106,6 +106,22 @@ app.post('/addtocart',function(req,res){
      })
 });
 
+app.post('/updatequantityincart',function(req,res){
+
+    var data=req.body.json; 
+     var ele=JSON.parse(data);
+     var item=ele.item;
+     var quantity=ele.quantity;
+     console.log("123"+item+quantity+"123");
+     
+     dbcart.updatequantity(item,quantity).then(function(update){
+         res.send();
+     }).catch(function(err){
+         console.log(err);
+         res.send(err);
+         
+     })
+});
 app.get('/json',function(req,res){
     var content='';
     dblist.getalltitles().then(function(titles){
