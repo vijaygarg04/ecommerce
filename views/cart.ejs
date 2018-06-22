@@ -9,16 +9,29 @@
 <body>
     <div class="container" style="margin: 0px auto; width: 50%; border:1px solid gray; border-radius: 3px">
         
-        <div class="row" style="margin-top: 100px" id="pro">
-            <table style="width: 50%; margin: 0px auto"
-          <%  for(var i=0;i<items.length;i++){ %>
-              <li><%= cart[i].title %></li>
-              <li> ITEM to be added<%= cart[i].title %></li>
-                <div class="col-lg-8 col-sm-7">
-                        <li> cart[i].quantity</li>
-                </div>
-                
-           <% } %>
+            <table style="width: 50%; margin: 0px auto">
+                <thead>
+                        <tr>
+                                <th>ITEM</th>
+                                <th>PRICE</th> 
+                                <th>Quantity</th>
+                                <th>AMOUNT</th>
+
+                        </tr>
+                </thead>
+                <tbody>
+                        <%  for(var i=0;i<cart.length;i++){ %>
+                            <tr>
+                                <td><%= cart[i].title %></td>
+                                <td><%= cart[i].price %></td>
+                                <td><%= cart[i].quantity %></td>
+                                <td><%= cart[i].price*cart[i].quantity %></td>
+
+                            </tr> 
+                             <% } %>
+                </tbody>
+            </table>
+          
     </div>
 </body>
 </html>
