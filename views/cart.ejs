@@ -21,7 +21,7 @@
 
                         </tr>
                 </thead>
-                <tbody>
+                <tbody class="tbody">
                         <%  for(var i=0;i<cart.length;i++){ %>
                             <tr>
                                 <td><%= cart[i].title %></td>
@@ -32,6 +32,15 @@
                                 <td><button class="minus">-</button></td>
                             </tr> 
                              <% } %>
+                            <tr>
+                                    <td >
+                                            TOTAL VALUE
+                                        </td>
+                                <td id="totalvalue">
+                                    
+                                </td>
+
+                            </tr>
                 </tbody>
             </table>
           

@@ -1,4 +1,24 @@
 $(function(){
+    var totalvalue=0;
+     var idx=($(".tbody tr").length)-1;
+    // console.log($(".tbody tr")[idx].children[0]);
+    
+    // console.log($(".tbody tr")[0]);
+    console.log($("#totalvalue")[0].innerText);
+    
+    for(var i=0;i<idx;i++){
+        var price=$(".tbody tr")[i].children[1].innerText;
+        price=parseInt(price);
+        var quantity=$(".tbody tr")[i].children[2].innerText;
+        quantity=parseInt(quantity);
+        
+        
+        
+        totalvalue+=price*quantity;
+    }
+    
+    $("#totalvalue")[0].innerText=totalvalue;
+    $(".tbody tr")[idx].children[1].innerText=totalvalue;
     $(".plus").click(function(){
         // console.log($(this)[0].parentElement.parentElement);
         var item=$(this)[0].parentElement.parentElement.children[0].innerText;
@@ -12,7 +32,7 @@ $(function(){
             item:item,
             quantity:newquantity
         }
-        if(quantity>=0&&quantity<=10){
+        if(quantity>=0&&quantity<10){
         $.post(
             '/updatequantityincart',
             {
@@ -45,7 +65,7 @@ $(function(){
             item:item,
             quantity:newquantity
         }
-        if(quantity>=0&&quantity<=10){
+        if(quantity>0&&quantity<=10){
         $.post(
             '/updatequantityincart',
             {
