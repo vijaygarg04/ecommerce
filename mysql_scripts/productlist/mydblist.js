@@ -43,8 +43,24 @@ function insertinproductlist(title,description,price,img){
             })
     })
 }
+function getalltitles(){
+    return new Promise(function(resolve,reject){
+        connection.query(`SELECT title from item `,
+        function(err,rows,cols){
+                if(err){
+                    reject(err);
+                }else{
+                    console.log('success');
+                    
+                    resolve(rows);
+                    
+                }
+            })
+    })
+}
 exports=module.exports={
     insertinproductlist,
-    getAllitemfromproductlist
+    getAllitemfromproductlist,
+    getalltitles
 }
 

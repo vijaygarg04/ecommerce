@@ -62,8 +62,59 @@ app.post('/additem',function(req,res){
          
      })
 });
+app.post('/addtocart',function(req,res){
+    var data=req.body.json; 
+     var ele=JSON.parse(data);
+     var item=ele.item;
+     var description=ele.description;
+     var price=ele.price;
+     var img=ele.image;
+     console.log('------------------');
+     
+     dbcart.getitemswithtitlefromcart(item).
+     then(function(orders){
+         console.log(orders);
+         if(orders.length>=1){
+             console.log('one');
+             console.log(orders[0].quantity+1);
+             
+             dbcart.updatequantity(item,orders[0].quantity+1).then(function(update){
+                console.log(update);
+                 
+                res.send();
+             }).catch(function(err){
+                console.log(err);
+                 res.send(err);
+             })
+         }else{
+             console.log('two');
+             
+             dbcart.insertincart(item,description,price,img,1).then(function(order){
+                console.log("******");
+                
+                console.log(order);
+                res.send();
+             }).catch(function(err){
+                 console.log(err);
+                 
+                 res.send(err);
+             });
+         }
+
+     }).catch(function(err){
+         res.send(err);
+     })
+});
+
+app.get('/json',function(req,res){
+    var content='';
+    dblist.getalltitles().then(function(titles){
+        console.log(titles);
+        res.send(titles);
+    });
 
 
+})
 app.listen(4444,function(){
 console.log("SERVER STARTED AT 4444");
 
