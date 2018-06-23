@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "category.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,10 @@
     "express": "^4.16.3",
     "fn": "^0.2.0",
     "mysql2": "^1.5.3"
+  },
+  "engines": {
+    "node": "8.11.3",
+    "npm": "5.6.0"
   },
   "devDependencies": {},
   "description": ""

@@ -21,5 +21,10 @@ $(function(){
 
             }
         );
+        ($('#title')[0]).value="";
+        ($('#description')[0]).value="";
+        ($('#imglink')[0]).value="";
+        ($('#price')[0]).value="";
+
     });
 });
