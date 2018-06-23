@@ -1,5 +1,6 @@
 const express= require('express');
 const app=express();
+const port =process.env.PORT||4444;
 const dbcart=require('./mysql_scripts/cartitems/mydbcart');
 const dblist=require ('./mysql_scripts/productlist/mydblist');
 const bodyparser=require('body-parser');
@@ -141,7 +142,7 @@ app.get('/thankyou',function(req,res){
     })
     
 })
-app.listen(4444,function(){
+app.listen(port,function(){
 console.log("SERVER STARTED AT 4444");
 
 });
